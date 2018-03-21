@@ -10,6 +10,29 @@ session_start();
 
 <style>
 
+#records {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+#records td, #records th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#records tr:nth-child(even){background-color: #f2f2f2;}
+
+#records tr:hover {background-color: #ddd;}
+
+#records th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+}    
+    
 body{
     background-color: #f2f2f2;
 }
@@ -87,6 +110,19 @@ $result= mysqli_query($conn, $sql);
 $availability=0;
 
 if (mysqli_num_rows($result) > 0) {
+    
+    echo  "<table id = 'records'>"; 
+  echo "<tr>";
+      echo  "<th>Name</th>";
+      echo  "<th>Roll No</th>";
+      echo  "<th>Project</th>";
+      echo  "<th>Guided By</th>";
+      echo  "<th>Present Status</th>";
+      echo  "<th>Modified Date</th>";
+      echo  "<th>Edit</th>";
+      echo  "<th>History</th>";
+  echo "</tr>";
+    
     while($row = mysqli_fetch_assoc($result)) {
     
     if($row["rollno"]==$search ||$row["name"]==$search)
@@ -98,21 +134,9 @@ if (mysqli_num_rows($result) > 0) {
               $roll=$row['rollno'];
 
   ?>
-          <div style="width: 30%;float:left;padding: 15px;background-color: #e9dbd8;margin: 5px" >
-           
-            <?php
-  echo  "<h4>Name:  " . $row["name"]."<br> ". " Roll No :  " . $row["rollno"]. " <br> ". " Project : " . $row["topic"]. "<br> "." Guided By: " . $row["guide"]."<br>  ".  "Present Status : " . $row["status"]."<br>  ". "Modified Date : " . $row["date"]."<br>" ; 
-
-?>
-<br>
-<center>
- <form action="edit.php" method="post" >
-  <input type="hidden" name="rollno" value=<?php echo $roll ?> >
-  <input type="submit" value="Edit">
-</form>
-
-</center>
-</div>
+          <?php
+        
+        echo "<tr><td>", $row['name'] , "</td><td>" , $row['rollno'] , "</td><td>" , $row['topic'] , "</td><td>" , $row['guide'] , "</td><td>", $row['status'] , "</td><td>" , $row['date'], "</td><td><form action = 'edit.php' method = 'post'><input type = 'hidden' name = 'rollno' value = ", $roll, "><input type = 'submit' value = 'Edit'></form>", "</td><td>", "<form action = 'history.php' method = 'post'><input type = 'hidden' name = 'rollno' value = ", $roll, "><input type = 'submit' value = 'History'></form>", "</td></tr>" ;?>
 
 <?php
 }
