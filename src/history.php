@@ -53,8 +53,8 @@ input[type=text], select, textarea{
 <center>
 <h1>NATIONAL INSTITUTE OF TECHNOLOGY CALICUT</h1>
 <h2>phD Student Project Management System</h2>
-<br><br>
-<h3>History</h3></center>
+
+<h3 style="color:red;">History</h3></center>
 <?php
 
 
