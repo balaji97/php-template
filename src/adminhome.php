@@ -134,7 +134,7 @@ $availability=0;
    
     
     
-echo  "<table>"; 
+echo  "<table id = 'records'>"; 
   echo "<tr>";
       echo  "<th>Name</th>";
       echo  "<th>Roll No</th>";
