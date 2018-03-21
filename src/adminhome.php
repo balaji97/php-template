@@ -77,7 +77,6 @@ input[type=text], select, textarea{
 <option value="option9">option9</option>
 <option value="option10">option10</option>
 </select>
-<br>
 <input type="submit" value="search">
 </form>
 

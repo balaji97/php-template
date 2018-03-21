@@ -76,7 +76,7 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$search=mysqli_real_escape_string($conn, $_POST['search']);
+$search=mysqli_real_escape_string($conn, $_POST['status']);
 
 
 $sql = "SELECT name,project.rollno,email,department,guide,guidemail,topic,status,date
@@ -89,7 +89,7 @@ $availability=0;
 if (mysqli_num_rows($result) > 0) {
     while($row = mysqli_fetch_assoc($result)) {
     
-    if($row["rollno"]==$search ||$row["name"]==$search)
+    if($row["status"]==$search)
       {
 
 

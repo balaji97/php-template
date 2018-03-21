@@ -154,7 +154,8 @@ mysqli_close($conn);
 <option value="option8">option8</option>
 <option value="option9">option9</option>
 <option value="option10">option10</option>
-
+    </select>
+    
 <br>
 <label >Modified Date</label>
 <input type="date"  name="date" placeholder="Date" required="true">
