@@ -74,7 +74,7 @@ if (!$conn) {
 }
 
 $roll=mysqli_real_escape_string($conn, $_POST['rollno']);
-
+echo "<h3>".$roll."</h3><br>";
 
 $sql = "SELECT rollno,status,datemodify
 FROM history
